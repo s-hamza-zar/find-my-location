@@ -3,6 +3,7 @@ import Details from "./components/Details";
 import Map from "./components/Map";
 import { useEffect, useState } from "react";
 import Axios from "axios";
+import Loading from "./components/Loading";
 
 function App() {
   // Setting up the initial state variables
@@ -29,13 +30,16 @@ function App() {
         speedFactor={0.05}
         backgroundColor="black"
       />
-      <div className="flex flex-col ">
-        <Details ipDetails={ipDetails} />
-        {isFetching ? <></> : <Map lat={lat} lon={lon} />}
-      </div>
-
-      {/* <Map lat={lat} lon={lon} /> */}
-      {/* Other components */}
+      {isFetching ? (
+        <div className="flex flex-col items-center my-[300px]">
+          <Loading />
+        </div>
+      ) : (
+        <div className="flex flex-col ">
+          <Details ipDetails={ipDetails} />
+          <Map lat={lat} lon={lon} />
+        </div>
+      )}
     </div>
   );
 }
