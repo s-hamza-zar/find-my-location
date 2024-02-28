@@ -1,8 +1,8 @@
-import Axios from "axios";
-import React, { useEffect, useState } from "react";
+import { WiTime8 } from "react-icons/wi";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { MdAttachMoney } from "react-icons/md";
 import InputField from "./InputField";
+import { SiInternetcomputer } from "react-icons/si";
 
 const Details = ({ ipDetails }) => {
   return (
@@ -12,7 +12,7 @@ const Details = ({ ipDetails }) => {
       </h1>
       <div className="left">
         <div className="flex items-center  space-x-2">
-          <FaMapMarkerAlt size={20} className="mt-[-2px]" />
+          <FaMapMarkerAlt size={24} className="mt-[-2px]" />
           <InputField value={ipDetails?.ip} />
         </div>
         <div className="flex items-center mt-2 space-x-2">
@@ -23,8 +23,17 @@ const Details = ({ ipDetails }) => {
           <InputField value={ipDetails.city + ", " + ipDetails.country_name} />
         </div>
         <div className="flex items-center mt-2 space-x-2">
-          <MdAttachMoney size={20} />
+          <MdAttachMoney size={24} />
           <InputField value={ipDetails.currency} />
+        </div>
+
+        <div className="flex items-center mt-2 space-x-2">
+          <WiTime8 size={24} />
+          <InputField value={ipDetails.timezone} />
+        </div>
+        <div className="flex items-center mt-2 space-x-2">
+          <SiInternetcomputer size={24} />
+          <InputField value={ipDetails.org} />
         </div>
       </div>
     </div>
